@@ -12,7 +12,7 @@ if(isset($_POST['import'])) {
 
     $csv = $_FILES['file'];
 
-    dd($csv, 0);
+    // dd($csv, 0);
     if(isset($csv['tmp_name']) && !empty($csv['tmp_name'])) {
 
       //
@@ -24,7 +24,14 @@ if(isset($_POST['import'])) {
       //
       if(in_array($mime, $allowed_mime) && is_uploaded_file($csv['tmp_name'])) {
         //
-        echo 'MIME type passes<br>';
+        //  echo 'MIME type passes<br>';
+        $data = [];
+        $f = fopen($csv['tmp_name'], 'r');
+        while($row = fgetcsv($f,0,';')) {
+          array_push($data, $row);
+        }
+        fclose($f);
+        dd($data);                
       }
       //                                           
     }
