@@ -6,11 +6,21 @@ function dd($arr, $die=true){
   }
 }
 
-if(isset($_POST['fn'])) {
-        if((isset($_FILES['fn']) && is_array( $_FILES['fn'] ))) {
-  echo 'Hello';
+if(isset($_POST['import'])) {
+
+  if((isset($_FILES['file']) && is_array( $_FILES['file'] ))) {
+
+    $csv = $_FILES['file'];
+
+    dd($csv, 0);
+    if(isset($csv['tmp_name']) && !empty($csv['tmp_name'])) {
+
+      //
+      //                                           
+    }
+  }
 }
-}
-  dd($_POST, 0);
-  echo 'csv parser';
+
+
+echo 'csv parser';
 ?>
