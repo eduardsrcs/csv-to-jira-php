@@ -7,8 +7,8 @@
 </head>
 <body>
   <h1>CSV to JIRA parsing</h1>
-  <form method="POST" action="csvparser.php">
-    <input type="file">
+  <form method="POST" action="csvparser.php" enctype="multipart/form-data">
+    <input name="fn" type="file">
     <input type="submit" value="submit">
   </form>
 </body>
